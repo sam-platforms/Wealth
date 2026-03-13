@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wealth App Documentation</title>
+    <title>My Wealth App Documentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -76,7 +76,7 @@
     <div class="max-w-6xl mx-auto px-4 py-12">
         <header class="text-center mb-12">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl mb-4">
-                Wealth App
+                My Wealth Tracker
             </h1>
             <p class="text-lg text-gray-600">Your complete personal finance dashboard</p>
         </header>
@@ -185,6 +185,11 @@
             const cache = {};
 
             async function loadContent(tabId) {
+                // Update URL parameter without reloading the page
+                const url = new URL(window.location);
+                url.search = '?' + tabId;
+                window.history.replaceState({}, '', url);
+
                 tabBtns.forEach(btn => {
                     if (btn.dataset.tab === tabId) {
                         btn.classList.add('active', 'text-blue-600', 'border-blue-600');
@@ -223,8 +228,21 @@
                 btn.addEventListener('click', () => loadContent(btn.dataset.tab));
             });
 
-            // Initialize default open tab
-            loadContent('guide');
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', () => {
+                const search = window.location.search.replace('?', '');
+                if (filePaths[search]) {
+                    loadContent(search);
+                }
+            });
+
+            // Initialize default open tab from URL or fallback to guide
+            const initialTab = window.location.search.replace('?', '');
+            if (initialTab && filePaths[initialTab]) {
+                loadContent(initialTab);
+            } else {
+                loadContent('guide');
+            }
         });
     </script>
 </body>
