@@ -19,11 +19,10 @@ We love hearing feature requests from our community! Please use the subject line
 
 ## 2. Direct Support Channels
 
-- **Technical Support Email:** `[Insert Support Email Address Here]`
-- **General Inquiries:** `[Insert General Inquiry Email Here]`
-- **Twitter / X:** `[Insert Twitter Handle if applicable]`
+- **Technical Support Email:** `apps-wealth@privmailsrv.com`
+- **General Inquiries:** `apps@privmailsrv.com`
 
 _We aim to respond to all inquiries within 2-3 business days._
 
 ## 3. Business Inquiries / Press
-For interviews, press coverage, or business partnerships, please contact: `[Insert Press Email Here]`
+For interviews, press coverage, or business partnerships, please contact: `apps-wealth@privmailsrv.com`
