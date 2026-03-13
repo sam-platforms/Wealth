@@ -1,6 +1,6 @@
-# My Wealth Tracker - User Guide
+# Wealth - All In One Tracker - User Guide
 
-## Welcome to My Wealth Tracker
+## Welcome to Wealth App
 *Your complete personal finance dashboard*
 
 - **Overview:** Dashboard with customizable widgets
