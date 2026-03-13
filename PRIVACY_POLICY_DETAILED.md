@@ -1,12 +1,12 @@
-# Privacy Policy for My Wealth Tracker
+# Privacy Policy for Wealth
 
-**Last Updated:** [Insert Date]
+**Last Updated:** 13th, Mar 2026
 
 At My Wealth Tracker, your privacy is our highest priority. This Privacy Policy explains our practices regarding your data.
 
 ## 1. Data Collection and Usage
 **We do not collect, access, or share your personal data.** 
-My Wealth Tracker is designed to operate completely offline as a "local-first" application. 
+Wealth App is designed to operate completely offline as a "local-first" application. 
 - **No External Servers:** We do not maintain user accounts, perform cloud tracking, or send your data to any external analytics servers.
 - **On-Device Processing:** All of your financial information and app usage data are stored and processed locally on your device.
 
