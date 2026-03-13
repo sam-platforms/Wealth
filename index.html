@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wealth App Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Custom Styles for Markdown */
+        .prose h1 { font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; color: #1a202c; }
+        .prose h2 { font-size: 1.5rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #2d3748; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: #4a5568; }
+        .prose p { margin-bottom: 1rem; color: #4a5568; line-height: 1.6; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #4a5568; }
+        .prose li { margin-bottom: 0.25rem; }
+        .prose strong { font-weight: 600; color: #1a202c; }
+        
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .slider-btn:hover { background: white; transform: translateY(-50%) scale(1.1); }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        
+        /* Tab Styles */
+        .tab-btn {
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans antialiased text-gray-900">
+
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl mb-4">
+                My Wealth Tracker
+            </h1>
+            <p class="text-lg text-gray-600">Your complete personal finance dashboard</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Column: App Screenshots Slider -->
+            <div class="md:col-span-1">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
+                    <h2 class="text-xl font-bold mb-6 text-center">App Preview</h2>
+                    
+                    <div class="slider-container">
+                        <div class="slider" id="imageSlider">
+                            <div class="slide"><img src="App Screenshots/ios_1_1.png" alt="Screenshot 1"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_2.png" alt="Screenshot 2"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_3.png" alt="Screenshot 3"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_4.png" alt="Screenshot 4"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_5.png" alt="Screenshot 5"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_6.png" alt="Screenshot 6"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_7.png" alt="Screenshot 7"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_8.png" alt="Screenshot 8"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_9.png" alt="Screenshot 9"></div>
+                            <div class="slide"><img src="App Screenshots/ios_1_10.png" alt="Screenshot 10"></div>
+                        </div>
+                        <button class="slider-btn prev" id="prevBtn" aria-label="Previous">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button class="slider-btn next" id="nextBtn" aria-label="Next">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Documentation Tabs -->
+            <div class="md:col-span-2">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    
+                    <!-- Tabs Header -->
+                    <div class="flex border-b border-gray-200 overflow-x-auto">
+                        <button class="tab-btn active px-6 py-4 text-sm font-medium text-gray-700 hover:text-gray-900 whitespace-nowrap" data-tab="guide">
+                            User Guide
+                        </button>
+                        <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap" data-tab="privacy">
+                            Privacy Policy
+                        </button>
+                        <button class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap" data-tab="support">
+                            Support & Info
+                        </button>
+                    </div>
+
+                    <!-- Tabs Content -->
+                    <div class="p-8">
+                        <div id="content" class="prose max-w-none">
+                            <div class="flex justify-center py-10">
+                                <svg class="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Slider Logic
+            const slider = document.getElementById('imageSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSlide = 0;
+            const totalSlides = 10;
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+
+            // Auto-advance slider
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 4000);
+
+            // Tabs Logic
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const contentDiv = document.getElementById('content');
+            
+            const filePaths = {
+                'guide': 'USER_GUIDE.md',
+                'privacy': 'PRIVACY_POLICY_DETAILED.md',
+                'support': 'SUPPORT_CONTACTS_AND_INFORMATION.md'
+            };
+
+            const cache = {};
+
+            async function loadContent(tabId) {
+                tabBtns.forEach(btn => {
+                    if (btn.dataset.tab === tabId) {
+                        btn.classList.add('active', 'text-blue-600', 'border-blue-600');
+                        btn.classList.remove('text-gray-500');
+                    } else {
+                        btn.classList.remove('active', 'text-blue-600', 'border-blue-600');
+                        btn.classList.add('text-gray-500');
+                    }
+                });
+
+                if (cache[tabId]) {
+                    contentDiv.innerHTML = marked.parse(cache[tabId]);
+                    return;
+                }
+
+                try {
+                    const response = await fetch(filePaths[tabId]);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const text = await response.text();
+                    cache[tabId] = text;
+                    contentDiv.innerHTML = marked.parse(text);
+                } catch (error) {
+                    // Fallback content in case fetch fails (e.g., local file system CORS)
+                    contentDiv.innerHTML = `
+                        <div class="p-4 bg-yellow-50 text-yellow-800 rounded-lg">
+                            <p class="font-bold">Note:</p>
+                            <p>Markdown files could not be loaded dynamically. This usually happens when viewing the file locally without a web server due to CORS restrictions.</p>
+                            <p>Once deployed to GitHub Pages, the content will load correctly.</p>
+                            <p class="mt-2 text-sm">Attempted to load: ${filePaths[tabId]}</p>
+                        </div>
+                    `;
+                }
+            }
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => loadContent(btn.dataset.tab));
+            });
+
+            // Initialize default open tab
+            loadContent('guide');
+        });
+    </script>
+</body>
+</html>
