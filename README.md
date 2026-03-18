@@ -3,6 +3,9 @@
 ## Developer
 - **Sameh Elhakim**
 
+## URL
+https://apps.apple.com/app/wealth-all-in-one-tracker/id6760544916
+
 ## Welcome to Wealth App
 *Your complete personal finance dashboard*
 
