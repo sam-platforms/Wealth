@@ -1,5 +1,8 @@
 # Wealth - All In One Tracker - User Guide
 
+## Developer
+*Sameh Elhakim
+
 ## Welcome to Wealth App
 *Your complete personal finance dashboard*
 
